@@ -39,10 +39,10 @@ function App() {
   });
 
   const getUser = () => {
+    setError(null);
+    setLoader(true);
     if (name.trim() !== "") {
       fetch(`https://api.github.com/users/${name}`).then(async (res) => {
-        setError(null);
-        setLoader(true);
         const data = await res.json();
         setLoader(null);
         if (!data.message) {
